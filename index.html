@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f1ea" />
+  <title>KU Shuttle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ea;
+      --surface: #ffffff;
+      --surface-2: #fbf8f2;
+      --ink: #0e0f12;
+      --muted: #77746e;
+      --muted-2: #a39f95;
+      --line: rgba(14, 15, 18, 0.08);
+      --line-2: rgba(14, 15, 18, 0.045);
+      --accent: #c44a28;
+      --accent-ink: #fff8f2;
+      --shadow-sm: 0 1px 2px rgba(14, 15, 18, 0.045);
+      --shadow-md: 0 12px 34px -18px rgba(14, 15, 18, 0.28);
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 22px;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Geist", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      letter-spacing: 0;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 18% 8%, rgba(196, 74, 40, 0.055) 0%, transparent 38%),
+        radial-gradient(circle at 86% 92%, rgba(16, 48, 96, 0.045) 0%, transparent 44%);
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    .app {
+      width: min(520px, 100%);
+      margin: 0 auto;
+      padding: max(18px, env(safe-area-inset-top)) 18px 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 8px 4px 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--bg);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    .brand-name {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 22px;
+      font-weight: 650;
+      line-height: 1;
+    }
+
+    .brand-meta {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11.5px;
+    }
+
+    .now {
+      text-align: right;
+      line-height: 1;
+    }
+
+    .now-time {
+      font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 18px;
+      font-weight: 550;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .now-date {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11.5px;
+    }
+
+    .card {
+      margin-bottom: 16px;
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    .eyebrow,
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .picker-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .select-wrap {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--r-sm);
+      background: var(--surface-2);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .select-wrap:focus-within {
+      border-color: rgba(14, 15, 18, 0.22);
+      box-shadow: 0 0 0 4px rgba(14, 15, 18, 0.045);
+    }
+
+    select {
+      width: 100%;
+      min-height: 54px;
+      padding: 0 30px 0 12px;
+      border: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      outline: none;
+      font-size: 17px;
+      font-weight: 650;
+    }
+
+    .chev {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 11px;
+      pointer-events: none;
+    }
+
+    .swap-btn {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.22s ease, background 0.16s ease;
+    }
+
+    .swap-btn:active {
+      transform: rotate(180deg);
+    }
+
+    .route-summary {
+      margin: 2px 0 14px;
+      text-align: center;
+      color: var(--muted);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.2;
+    }
+
+    .route-summary strong {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .next-hero {
+      margin-bottom: 14px;
+      padding: 22px;
+      border-radius: var(--r-lg);
+      background: var(--ink);
+      color: var(--accent-ink);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .next-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 80% at 100% 0%, rgba(196, 74, 40, 0.34) 0%, transparent 56%);
+      pointer-events: none;
+    }
+
+    .next-hero > * {
+      position: relative;
+    }
+
+    .next-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      color: rgba(255, 248, 242, 0.58);
+      font-size: 10.5px;
+      font-weight: 650;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      display: inline-block;
+      margin-right: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(196, 74, 40, 0.55);
+      animation: pulse 1.8s ease-out infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(196, 74, 40, 0.55); }
+      70% { box-shadow: 0 0 0 10px rgba(196, 74, 40, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(196, 74, 40, 0); }
+    }
+
+    .next-time {
+      margin: 0 0 12px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(58px, 16vw, 78px);
+      font-weight: 560;
+      line-height: 0.92;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .next-rel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: baseline;
+      color: rgba(255, 248, 242, 0.78);
+      font-size: 15px;
+    }
+
+    .next-rel strong {
+      color: var(--accent-ink);
+      font-weight: 700;
+    }
+
+    .next-note {
+      margin-top: 12px;
+      padding-top: 11px;
+      border-top: 1px solid rgba(255, 248, 242, 0.13);
+      color: rgba(255, 248, 242, 0.68);
+      font-size: 12.5px;
+    }
+
+    .empty {
+      background: linear-gradient(120deg, #ffffff 0%, #ffffff 52%, #f8dfd6 100%);
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      box-shadow: none;
+      text-align: center;
+      padding: 34px 22px;
+    }
+
+    .empty-icon {
+      color: var(--muted-2);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 36px;
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .empty-title {
+      margin-top: 10px;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .empty-sub {
+      margin-top: 4px;
+      font-size: 13px;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0 16px;
+    }
+
+    .action {
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--r-sm);
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .action.primary {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 6px 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .section-title .count {
+      color: var(--muted-2);
+      font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10.5px;
+      letter-spacing: 0;
+    }
+
+    .time-panel {
+      display: none;
+    }
+
+    .time-panel.open {
+      display: block;
+    }
+
+    .time-list {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      background: var(--surface);
+    }
+
+    .time-row {
+      min-height: 50px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line-2);
+    }
+
+    .time-row:last-child {
+      border-bottom: 0;
+    }
+
+    .time-row .t {
+      color: var(--ink);
+      font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 15px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .time-row .note {
+      min-width: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .time-row .rel {
+      color: var(--muted);
+      font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .time-row.passed .t,
+    .time-row.passed .rel {
+      color: var(--muted-2);
+      text-decoration: line-through;
+      text-decoration-color: rgba(122, 119, 112, 0.32);
+      text-decoration-thickness: 1px;
+    }
+
+    .time-row.passed .note {
+      color: var(--muted-2);
+    }
+
+    .foot {
+      margin-top: 28px;
+      padding: 0 8px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 11.5px;
+      line-height: 1.65;
+    }
+
+    .reveal {
+      animation: reveal 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 430px) {
+      .app {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .topbar {
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .picker-row {
+        gap: 7px;
+      }
+
+      select {
+        min-height: 50px;
+        font-size: 15px;
+      }
+
+      .swap-btn {
+        width: 36px;
+        height: 36px;
+      }
+
+      .next-time {
+        font-size: 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">K</div>
+        <div>
+          <div class="brand-name">KU Shuttle</div>
+          <div class="brand-meta" id="brandMeta">Loading schedule</div>
+        </div>
+      </div>
+      <div class="now">
+        <div class="now-time" id="nowTime">--:--</div>
+        <div class="now-date" id="nowDate">Loading</div>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="field">
+        <label for="period">Schedule</label>
+        <div class="select-wrap">
+          <select id="period"></select>
+          <span class="chev">v</span>
+        </div>
+      </div>
+
+      <div class="picker-row">
+        <div class="picker">
+          <label for="from">From</label>
+          <div class="select-wrap">
+            <select id="from"></select>
+            <span class="chev">v</span>
+          </div>
+        </div>
+        <button class="swap-btn" id="swap" type="button" aria-label="Swap from and to">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 4v16M3 8l4-4 4 4M17 20V4M21 16l-4 4-4-4"></path>
+          </svg>
+        </button>
+        <div class="picker">
+          <label for="to">To</label>
+          <div class="select-wrap">
+            <select id="to"></select>
+            <span class="chev">v</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="results"></div>
+
+    <footer class="foot" id="foot"></footer>
+  </main>
+
+  <script>
+    const APP_DATA = {
+  "meta": {
+    "title": "Final Exam Bus Schedule",
+    "version": "Monday 11 May to Thursday 14 May 2026",
+    "sourceFile": "Final Exam Bus Schedule_Friday 08 May to Thursday 14 May 2026.xlsx",
+    "updatedAt": "2026-05-09"
+  },
+  "locations": {
+    "al_rawda": "Al Rawda",
+    "kurh": "KURH",
+    "umm_lulu": "Umm Lulu",
+    "masdar": "Masdar",
+    "main": "Main Campus",
+    "san": "SAN Campus",
+    "al_bahar": "Al Bahar Parking"
+  },
+  "order": [
+    "al_rawda",
+    "kurh",
+    "umm_lulu",
+    "masdar",
+    "main",
+    "san",
+    "al_bahar"
+  ],
+  "periods": [
+    {
+      "id": "2026-05-11..2026-05-14",
+      "label": "11 May - 14 May",
+      "fullLabel": "Monday to Thursday 11 to 14 May 2026",
+      "start": "2026-05-11",
+      "end": "2026-05-14"
+    }
+  ],
+  "routes": {
+    "2026-05-11..2026-05-14": {
+      "al_rawda>main": [
+        {
+          "t": "08:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM - Other residences"
+        }
+      ],
+      "kurh>main": [
+        {
+          "t": "08:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM - Other residences"
+        }
+      ],
+      "umm_lulu>main": [
+        {
+          "t": "08:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM - Other residences"
+        }
+      ],
+      "masdar>main": [
+        {
+          "t": "08:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "14:30",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        }
+      ],
+      "san>main": [
+        {
+          "t": "08:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM - Other residences"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "main>al_rawda": [
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "main>kurh": [
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "main>umm_lulu": [
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "main>masdar": [
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "main>san": [
+        {
+          "t": "08:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "12:00",
+          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "13:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "al_bahar>main": [
+        {
+          "t": "08:30",
+          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "09:30",
+          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:30",
+          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "12:30",
+          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "13:30",
+          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "14:30",
+          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "Al Bahar parking shuttle - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "Al Bahar parking shuttle - 4:00 PM - 6:00 PM"
+        }
+      ],
+      "main>al_bahar": [
+        {
+          "t": "11:30",
+          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "Al Bahar parking shuttle - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "Al Bahar parking shuttle - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "Al Bahar parking shuttle - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "Al Bahar parking shuttle - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "al_rawda>san": [
+        {
+          "t": "08:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "13:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        }
+      ],
+      "kurh>san": [
+        {
+          "t": "08:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "13:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        }
+      ],
+      "umm_lulu>san": [
+        {
+          "t": "08:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "13:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        }
+      ],
+      "masdar>san": [
+        {
+          "t": "08:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "10:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "13:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        }
+      ],
+      "san>al_rawda": [
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "san>kurh": [
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "san>umm_lulu": [
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ],
+      "san>masdar": [
+        {
+          "t": "11:30",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "12:00",
+          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+        },
+        {
+          "t": "15:00",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "15:30",
+          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+        },
+        {
+          "t": "18:30",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:00",
+          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+        },
+        {
+          "t": "19:30",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        },
+        {
+          "t": "20:00",
+          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+        }
+      ]
+    }
+  }
+};
+    /* END_SCHEDULE_DATA */
+
+    const state = {
+      period: "",
+      from: "masdar",
+      to: "san",
+      allOpen: false
+    };
+
+    const DORMS = ["al_rawda", "kurh", "umm_lulu", "masdar"];
+
+    function todayISO() {
+      const now = new Date();
+      const local = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const year = local.getFullYear();
+      const month = String(local.getMonth() + 1).padStart(2, "0");
+      const day = String(local.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+
+    function dateValue(iso) {
+      const parts = iso.split("-").map(Number);
+      return new Date(parts[0], parts[1] - 1, parts[2]).getTime();
+    }
+
+    function periodContainsToday(period) {
+      const today = dateValue(todayISO());
+      return today >= dateValue(period.start) && today <= dateValue(period.end);
+    }
+
+    function chooseInitialPeriod() {
+      const periods = APP_DATA.periods || [];
+      const active = periods.find(periodContainsToday);
+      if (active) return active.id;
+      const today = dateValue(todayISO());
+      const next = periods.find((period) => dateValue(period.start) > today);
+      return next ? next.id : (periods[periods.length - 1] || {}).id || "";
+    }
+
+    function periodById(id) {
+      return (APP_DATA.periods || []).find((period) => period.id === id);
+    }
+
+    function routeKey(from, to) {
+      return `${from}>${to}`;
+    }
+
+    function routesForPeriod() {
+      return APP_DATA.routes[state.period] || {};
+    }
+
+    function validOrigins() {
+      const keys = Object.keys(routesForPeriod());
+      return APP_DATA.order.filter((place) => keys.some((key) => key.startsWith(`${place}>`)));
+    }
+
+    function validDestinations(from) {
+      const keys = Object.keys(routesForPeriod());
+      return APP_DATA.order.filter((place) => keys.includes(routeKey(from, place)));
+    }
+
+    function rowsForRoute() {
+      return routesForPeriod()[routeKey(state.from, state.to)] || [];
+    }
+
+    function nowMinutes() {
+      const now = new Date();
+      return now.getHours() * 60 + now.getMinutes();
+    }
+
+    function toMin(hhmm) {
+      const parts = hhmm.split(":").map(Number);
+      return parts[0] * 60 + parts[1];
+    }
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function fmt12(hhmm) {
+      const parts = hhmm.split(":").map(Number);
+      const suffix = parts[0] >= 12 ? "PM" : "AM";
+      const hour = parts[0] % 12 || 12;
+      return `${hour}:${pad(parts[1])} ${suffix}`;
+    }
+
+    function relative(diff) {
+      if (diff < 0) {
+        const ago = Math.abs(diff);
+        if (ago < 60) return `${ago} min ago`;
+        return `${Math.floor(ago / 60)}h ${ago % 60}m ago`;
+      }
+      if (diff === 0) return "now";
+      if (diff < 60) return `in ${diff} min`;
+      const hours = Math.floor(diff / 60);
+      const mins = diff % 60;
+      return mins ? `in ${hours}h ${mins}m` : `in ${hours}h`;
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function saveState() {
+      localStorage.setItem("ku-shuttle-v4", JSON.stringify({
+        period: state.period,
+        from: state.from,
+        to: state.to
+      }));
+    }
+
+    function loadState() {
+      const saved = JSON.parse(localStorage.getItem("ku-shuttle-v4") || "{}");
+      state.period = APP_DATA.periods.some((period) => period.id === saved.period) ? saved.period : chooseInitialPeriod();
+      state.from = APP_DATA.order.includes(saved.from) ? saved.from : "masdar";
+      state.to = APP_DATA.order.includes(saved.to) ? saved.to : "san";
+      repairRoute();
+    }
+
+    function repairRoute() {
+      const origins = validOrigins();
+      if (!origins.includes(state.from)) state.from = origins[0] || "";
+      const destinations = validDestinations(state.from);
+      if (!destinations.includes(state.to)) state.to = destinations[0] || "";
+    }
+
+    function renderPickers() {
+      const periodSelect = document.getElementById("period");
+      const fromSelect = document.getElementById("from");
+      const toSelect = document.getElementById("to");
+
+      periodSelect.innerHTML = APP_DATA.periods.map((period) => `<option value="${period.id}">${period.label}</option>`).join("");
+      periodSelect.value = state.period;
+
+      const origins = validOrigins();
+      fromSelect.innerHTML = origins.map((key) => `<option value="${key}">${APP_DATA.locations[key]}</option>`).join("");
+      fromSelect.value = state.from;
+
+      const destinations = validDestinations(state.from);
+      toSelect.innerHTML = destinations.map((key) => `<option value="${key}">${APP_DATA.locations[key]}</option>`).join("");
+      toSelect.value = state.to;
+    }
+
+    function renderClock() {
+      const now = new Date();
+      const h = now.getHours();
+      const suffix = h >= 12 ? "PM" : "AM";
+      document.getElementById("nowTime").textContent = `${h % 12 || 12}:${pad(now.getMinutes())} ${suffix}`;
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      document.getElementById("nowDate").textContent = `${days[now.getDay()]} - ${now.getDate()} ${months[now.getMonth()]}`;
+    }
+
+    function heroForPeriod(rows) {
+      const period = periodById(state.period);
+      const now = nowMinutes();
+      const sorted = rows.map((row) => ({ ...row, mins: toMin(row.t) })).sort((a, b) => a.mins - b.mins);
+      const isToday = period && periodContainsToday(period);
+      const today = dateValue(todayISO());
+      const periodFuture = period && dateValue(period.start) > today;
+      const upcoming = isToday ? sorted.filter((row) => row.mins >= now) : sorted;
+      const next = upcoming[0];
+
+      if (!next) {
+        return {
+          type: "empty",
+          title: "No more buses today",
+          sub: "Open all times to review earlier buses.",
+          rows: sorted
+        };
+      }
+
+      let label = "Next bus";
+      let rel = "";
+      if (isToday) {
+        rel = relative(next.mins - now);
+      } else if (periodFuture) {
+        label = "First listed bus";
+        rel = period.label;
+      } else {
+        label = "Listed bus";
+        rel = period ? period.label : "";
+      }
+
+      return { type: "bus", label, rel, next, rows: sorted, isToday };
+    }
+
+    function renderResults() {
+      const root = document.getElementById("results");
+      const rows = rowsForRoute();
+      const period = periodById(state.period);
+      const fromName = APP_DATA.locations[state.from] || "";
+      const toName = APP_DATA.locations[state.to] || "";
+      let html = `<div class="route-summary"><strong>${fromName}</strong> &rarr; <strong>${toName}</strong></div>`;
+
+      if (!rows.length) {
+        html += `
+          <section class="next-hero empty reveal">
+            <div class="empty-icon">&empty;</div>
+            <div class="empty-title">No buses on this route</div>
+            <div class="empty-sub">Try another route or schedule date.</div>
+          </section>
+        `;
+        root.innerHTML = html;
+        return;
+      }
+
+      const hero = heroForPeriod(rows);
+      if (hero.type === "bus") {
+        html += `
+          <section class="next-hero reveal">
+            <div class="next-head"><span><span class="pulse"></span>${hero.label}</span><span>${period ? period.label : ""}</span></div>
+            <p class="next-time">${fmt12(hero.next.t)}</p>
+            <div class="next-rel"><strong>${hero.rel}</strong><span>departing ${fmt12(hero.next.t)}</span></div>
+            ${hero.next.note ? `<div class="next-note">${escapeHtml(hero.next.note)}</div>` : ""}
+          </section>
+        `;
+      } else {
+        html += `
+          <section class="next-hero empty reveal">
+            <div class="empty-icon">&empty;</div>
+            <div class="empty-title">${hero.title}</div>
+            <div class="empty-sub">${hero.sub}</div>
+          </section>
+        `;
+      }
+
+      html += `
+        <div class="actions">
+          <button class="action primary" type="button" id="reverseRoute">Reverse route</button>
+          <button class="action" type="button" id="toggleAll">${state.allOpen ? "Hide times" : "All times"}</button>
+        </div>
+        <section class="time-panel ${state.allOpen ? "open" : ""}" id="timePanel">
+          <div class="section-title"><span>All departures</span><span class="count">${hero.rows.length}</span></div>
+          <div class="time-list">
+            ${hero.rows.map((row) => {
+              const isPassed = periodContainsToday(period) && row.mins < nowMinutes();
+              return `
+                <div class="time-row ${isPassed ? "passed" : ""}">
+                  <div class="t">${fmt12(row.t)}</div>
+                  <div class="note">${row.note ? escapeHtml(row.note) : ""}</div>
+                  <div class="rel">${periodContainsToday(period) ? relative(row.mins - nowMinutes()) : period.label}</div>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        </section>
+      `;
+
+      root.innerHTML = html;
+      bindResultButtons();
+    }
+
+    function bindResultButtons() {
+      const reverse = document.getElementById("reverseRoute");
+      const toggle = document.getElementById("toggleAll");
+      if (reverse) {
+        reverse.addEventListener("click", () => {
+          if (!routesForPeriod()[routeKey(state.to, state.from)]) return;
+          const oldFrom = state.from;
+          state.from = state.to;
+          state.to = oldFrom;
+          state.allOpen = false;
+          update();
+        });
+      }
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          state.allOpen = !state.allOpen;
+          renderResults();
+        });
+      }
+    }
+
+    function renderStaticText() {
+      document.getElementById("brandMeta").textContent = APP_DATA.meta.version;
+      document.getElementById("foot").innerHTML = `Source: ${escapeHtml(APP_DATA.meta.title)} - ${escapeHtml(APP_DATA.meta.version)}<br />Last updated: ${escapeHtml(APP_DATA.meta.updatedAt)}`;
+    }
+
+    function update() {
+      repairRoute();
+      saveState();
+      renderPickers();
+      renderResults();
+    }
+
+    function boot() {
+      renderStaticText();
+      loadState();
+      renderClock();
+      renderPickers();
+      renderResults();
+
+      document.getElementById("period").addEventListener("change", (event) => {
+        state.period = event.target.value;
+        state.allOpen = false;
+        update();
+      });
+
+      document.getElementById("from").addEventListener("change", (event) => {
+        state.from = event.target.value;
+        state.allOpen = false;
+        update();
+      });
+
+      document.getElementById("to").addEventListener("change", (event) => {
+        state.to = event.target.value;
+        state.allOpen = false;
+        update();
+      });
+
+      document.getElementById("swap").addEventListener("click", () => {
+        if (!routesForPeriod()[routeKey(state.to, state.from)]) return;
+        const oldFrom = state.from;
+        state.from = state.to;
+        state.to = oldFrom;
+        state.allOpen = false;
+        update();
+      });
+
+      setInterval(() => {
+        renderClock();
+        renderResults();
+      }, 30000);
+    }
+
+    boot();
+  </script>
+</body>
+</html>
