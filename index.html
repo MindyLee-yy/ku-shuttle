@@ -275,6 +275,13 @@
       font-size: clamp(72px, 22vw, 104px);
     }
 
+    .next-hero.time-only .next-rel {
+      justify-content: center;
+      margin-top: 14px;
+      color: rgba(255, 248, 242, 0.72);
+      font-size: 14px;
+    }
+
     .next-head {
       display: flex;
       justify-content: space-between;
@@ -1275,6 +1282,31 @@
       return APP_DATA.routes[state.period] || {};
     }
 
+    function contextFromNote(note) {
+      if (note.startsWith("Main Campus exam")) return "main_exam";
+      if (note.startsWith("SAN Campus exam")) return "san_exam";
+      if (note.startsWith("Al Bahar parking shuttle")) return "al_bahar";
+      return "other";
+    }
+
+    function baseRowsForRoute() {
+      return routesForPeriod()[routeKey(state.from, state.to)] || [];
+    }
+
+    function routeContexts() {
+      return [...new Set(baseRowsForRoute().map((row) => contextFromNote(row.note || "")))];
+    }
+
+    function automaticContext() {
+      const contexts = routeContexts();
+      if (state.from === "main" && contexts.includes("main_exam")) return "main_exam";
+      if (state.from === "san" && contexts.includes("san_exam")) return "san_exam";
+      if (state.from === "al_bahar" && contexts.includes("al_bahar")) return "al_bahar";
+      if (state.to === "main" && contexts.includes("main_exam")) return "main_exam";
+      if (state.to === "san" && contexts.includes("san_exam")) return "san_exam";
+      return contexts[0] || "";
+    }
+
     function validOrigins() {
       const keys = Object.keys(routesForPeriod());
       return APP_DATA.order.filter((place) => keys.some((key) => key.startsWith(`${place}>`)));
@@ -1286,7 +1318,8 @@
     }
 
     function rowsForRoute() {
-      return routesForPeriod()[routeKey(state.from, state.to)] || [];
+      const context = automaticContext();
+      return baseRowsForRoute().filter((row) => contextFromNote(row.note || "") === context);
     }
 
     function nowMinutes() {
@@ -1388,9 +1421,7 @@
       const now = nowMinutes();
       const sorted = rows.map((row) => ({ ...row, mins: toMin(row.t) })).sort((a, b) => a.mins - b.mins);
       const isToday = period && periodContainsToday(period);
-      const today = dateValue(todayISO());
-      const periodFuture = period && dateValue(period.start) > today;
-      const upcoming = isToday ? sorted.filter((row) => row.mins >= now) : sorted;
+      const upcoming = sorted.filter((row) => row.mins >= now);
       const next = upcoming[0];
 
       if (!next) {
@@ -1403,16 +1434,7 @@
       }
 
       let label = "Next bus";
-      let rel = "";
-      if (isToday) {
-        rel = relative(next.mins - now);
-      } else if (periodFuture) {
-        label = "First listed bus";
-        rel = period.label;
-      } else {
-        label = "Listed bus";
-        rel = period ? period.label : "";
-      }
+      let rel = relative(next.mins - now);
 
       return { type: "bus", label, rel, next, rows: sorted, isToday };
     }
@@ -1441,7 +1463,10 @@
       if (hero.type === "bus") {
         html += `
           <section class="next-hero time-only reveal" aria-label="${hero.label}: ${fmt12(hero.next.t)}">
-            <p class="next-time">${fmt12(hero.next.t)}</p>
+            <div>
+              <p class="next-time">${fmt12(hero.next.t)}</p>
+              <div class="next-rel"><strong>${hero.rel}</strong><span>next at ${fmt12(hero.next.t)}</span></div>
+            </div>
           </section>
         `;
       } else {
