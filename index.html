@@ -490,6 +490,24 @@
       line-height: 1.65;
     }
 
+    .feedback-link {
+      width: fit-content;
+      min-width: 116px;
+      min-height: 42px;
+      display: inline-grid;
+      place-items: center;
+      margin: 0 auto 16px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 750;
+      box-shadow: var(--shadow-sm);
+    }
+
     .reveal {
       animation: reveal 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     }
@@ -588,6 +606,8 @@
   </main>
 
   <script>
+    const FEEDBACK_URL = "feedback.html";
+
     const APP_DATA = {
   "meta": {
     "title": "Final Exam Bus Schedule",
@@ -1528,7 +1548,13 @@
 
     function renderStaticText() {
       document.getElementById("brandMeta").textContent = APP_DATA.meta.version;
-      document.getElementById("foot").innerHTML = `Source: ${escapeHtml(APP_DATA.meta.title)} - ${escapeHtml(APP_DATA.meta.version)}<br />Last updated: ${escapeHtml(APP_DATA.meta.updatedAt)}`;
+      const feedback = `<a class="feedback-link" id="feedbackLink" href="${FEEDBACK_URL || "#"}" target="_blank" rel="noopener">Feedback</a>`;
+      document.getElementById("foot").innerHTML = `${feedback}<br />Source: ${escapeHtml(APP_DATA.meta.title)} - ${escapeHtml(APP_DATA.meta.version)}<br />Last updated: ${escapeHtml(APP_DATA.meta.updatedAt)}`;
+      document.getElementById("feedbackLink").addEventListener("click", (event) => {
+        if (FEEDBACK_URL) return;
+        event.preventDefault();
+        alert("Feedback form is not connected yet.");
+      });
     }
 
     function update() {
