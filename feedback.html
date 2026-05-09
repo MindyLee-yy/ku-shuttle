@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f1ea" />
+  <title>KU Shuttle Feedback</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ea;
+      --surface: #ffffff;
+      --surface-2: #fbf8f2;
+      --ink: #0e0f12;
+      --muted: #77746e;
+      --line: rgba(14, 15, 18, 0.08);
+      --accent: #c44a28;
+      --shadow-sm: 0 1px 2px rgba(14, 15, 18, 0.045);
+      --shadow-md: 0 12px 34px -18px rgba(14, 15, 18, 0.24);
+      --r-sm: 10px;
+      --r-lg: 22px;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Geist", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 18% 8%, rgba(196, 74, 40, 0.055) 0%, transparent 38%),
+        radial-gradient(circle at 86% 92%, rgba(16, 48, 96, 0.045) 0%, transparent 44%);
+    }
+
+    .app {
+      width: min(520px, 100%);
+      margin: 0 auto;
+      padding: max(24px, env(safe-area-inset-top)) 18px 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .back {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--bg);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 34px;
+      font-weight: 650;
+      line-height: 1;
+    }
+
+    .intro {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 10.5px;
+      font-weight: 750;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 190px;
+      resize: vertical;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--r-sm);
+      background: var(--surface-2);
+      color: var(--ink);
+      font: inherit;
+      font-size: 15px;
+      line-height: 1.45;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    textarea:focus {
+      border-color: rgba(14, 15, 18, 0.22);
+      box-shadow: 0 0 0 4px rgba(14, 15, 18, 0.045);
+    }
+
+    .submit {
+      width: 100%;
+      min-height: 50px;
+      margin-top: 14px;
+      border: 0;
+      border-radius: var(--r-sm);
+      background: var(--ink);
+      color: var(--bg);
+      cursor: pointer;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: var(--shadow-md);
+    }
+
+    .submit:disabled {
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .status {
+      min-height: 21px;
+      margin-top: 12px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .status.success {
+      color: #2f7d5a;
+      font-weight: 650;
+    }
+
+    .tiny {
+      margin-top: 24px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 11.5px;
+    }
+
+    iframe {
+      width: 0;
+      height: 0;
+      border: 0;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <a class="back" href="index.html">&larr; Back to shuttle</a>
+
+    <div class="brand">
+      <div class="brand-mark">K</div>
+      <h1>Feedback</h1>
+    </div>
+
+    <p class="intro">Tell me anything about the shuttle schedule: wrong times, missing routes, confusing parts, or suggestions.</p>
+
+    <section class="card">
+      <form id="feedbackForm" action="https://docs.google.com/forms/d/e/1FAIpQLSddBHyFxrrZP0DNIdlQs9LGPpbZdPn5Y4uL4VaVU7hHYIbjvg/formResponse" method="POST" target="feedbackTarget">
+        <label for="message">Message</label>
+        <textarea id="message" name="entry.358144077" required placeholder="Type your message here..."></textarea>
+        <input type="hidden" name="fvv" value="1" />
+        <input type="hidden" name="pageHistory" value="0" />
+        <button class="submit" id="submitButton" type="submit">Submit</button>
+        <div class="status" id="status" aria-live="polite"></div>
+      </form>
+      <iframe name="feedbackTarget" title="Feedback submission target"></iframe>
+    </section>
+
+    <div class="tiny">Responses are collected through Google Forms.</div>
+  </main>
+
+  <script>
+    const form = document.getElementById("feedbackForm");
+    const message = document.getElementById("message");
+    const submitButton = document.getElementById("submitButton");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", () => {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+      status.className = "status";
+      status.textContent = "Sending your feedback.";
+
+      window.setTimeout(() => {
+        form.reset();
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit";
+        status.className = "status success";
+        status.textContent = "Thank you. Your feedback was sent.";
+        message.focus();
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
