@@ -1276,6 +1276,12 @@
       return new Date(parts[0], parts[1] - 1, parts[2]).getTime();
     }
 
+    function formatMonthDay(iso) {
+      const parts = iso.split("-").map(Number);
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      return `${months[parts[1] - 1]} ${parts[2]}`;
+    }
+
     function periodContainsToday(period) {
       const today = dateValue(todayISO());
       return today >= dateValue(period.start) && today <= dateValue(period.end);
@@ -1441,6 +1447,31 @@
       const now = nowMinutes();
       const sorted = rows.map((row) => ({ ...row, mins: toMin(row.t) })).sort((a, b) => a.mins - b.mins);
       const isToday = period && periodContainsToday(period);
+
+      if (!isToday && period) {
+        const today = dateValue(todayISO());
+        const starts = dateValue(period.start);
+        const ends = dateValue(period.end);
+
+        if (today < starts) {
+          return {
+            type: "empty",
+            title: "No service today",
+            sub: `Next service starts on ${formatMonthDay(period.start)}.`,
+            rows: sorted
+          };
+        }
+
+        if (today > ends) {
+          return {
+            type: "empty",
+            title: "No service today",
+            sub: `This schedule ended on ${formatMonthDay(period.end)}.`,
+            rows: sorted
+          };
+        }
+      }
+
       const upcoming = sorted.filter((row) => row.mins >= now);
       const next = upcoming[0];
 
