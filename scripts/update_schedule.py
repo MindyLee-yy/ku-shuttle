@@ -6,11 +6,16 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import zipfile
 from collections import defaultdict
 from datetime import date, datetime, time
 from pathlib import Path
+from xml.etree import ElementTree as ET
 
-from openpyxl import load_workbook
+try:
+    from openpyxl import load_workbook
+except ModuleNotFoundError:
+    load_workbook = None
 
 
 LOCATIONS = {
@@ -154,13 +159,92 @@ def add_entries(routes, period_id, origins, destinations, entries, exam_label, e
                 routes[period_id][f"{origin}>{destination}"].append({"t": entry["time"], "note": note})
 
 
+def column_index(cell_ref: str) -> int:
+    letters = "".join(char for char in cell_ref if char.isalpha())
+    index = 0
+    for char in letters:
+        index = index * 26 + ord(char.upper()) - ord("A") + 1
+    return index - 1
+
+
+def excel_number(value: str):
+    try:
+        numeric = float(value)
+    except ValueError:
+        return value
+    if 0 <= numeric < 1:
+        minutes = round(numeric * 24 * 60)
+        return time(minutes // 60, minutes % 60)
+    return value
+
+
+def read_xlsx_rows(path: Path):
+    spreadsheet_ns = {"a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+    office_rel_ns = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+    package_rel_ns = {"rel": "http://schemas.openxmlformats.org/package/2006/relationships"}
+
+    with zipfile.ZipFile(path) as archive:
+        shared_strings = []
+        if "xl/sharedStrings.xml" in archive.namelist():
+            shared_root = ET.fromstring(archive.read("xl/sharedStrings.xml"))
+            for item in shared_root.findall("a:si", spreadsheet_ns):
+                shared_strings.append("".join(node.text or "" for node in item.findall(".//a:t", spreadsheet_ns)))
+
+        workbook = ET.fromstring(archive.read("xl/workbook.xml"))
+        relationships = ET.fromstring(archive.read("xl/_rels/workbook.xml.rels"))
+        relationship_targets = {
+            rel.attrib["Id"]: rel.attrib["Target"]
+            for rel in relationships.findall("rel:Relationship", package_rel_ns)
+        }
+
+        for sheet in workbook.findall("a:sheets/a:sheet", spreadsheet_ns):
+            sheet_name = sheet.attrib["name"]
+            relationship_id = sheet.attrib[f"{{{office_rel_ns}}}id"]
+            target = relationship_targets[relationship_id]
+            sheet_path = "xl/" + target.lstrip("/") if not target.startswith("xl/") else target
+            sheet_root = ET.fromstring(archive.read(sheet_path))
+            rows = []
+
+            for row in sheet_root.findall("a:sheetData/a:row", spreadsheet_ns):
+                values = []
+                for cell in row.findall("a:c", spreadsheet_ns):
+                    ref = cell.attrib.get("r", "")
+                    index = column_index(ref)
+                    while len(values) <= index:
+                        values.append(None)
+
+                    cell_type = cell.attrib.get("t")
+                    raw_value = cell.find("a:v", spreadsheet_ns)
+                    inline = cell.find("a:is", spreadsheet_ns)
+                    value = None
+                    if cell_type == "s" and raw_value is not None:
+                        value = shared_strings[int(raw_value.text)]
+                    elif cell_type == "inlineStr" and inline is not None:
+                        value = "".join(node.text or "" for node in inline.findall(".//a:t", spreadsheet_ns))
+                    elif raw_value is not None and raw_value.text is not None:
+                        value = excel_number(raw_value.text)
+                    values[index] = value
+
+                rows.append(tuple(values))
+
+            yield sheet_name, rows
+
+
+def workbook_rows(path: Path):
+    if load_workbook is not None:
+        workbook = load_workbook(path, data_only=True)
+        for worksheet in workbook.worksheets:
+            yield worksheet.title, list(worksheet.iter_rows(values_only=True))
+        return
+
+    yield from read_xlsx_rows(path)
+
+
 def parse_workbook(path: Path) -> dict:
-    wb = load_workbook(path, data_only=True)
     periods = []
     routes = defaultdict(lambda: defaultdict(list))
 
-    for ws in wb.worksheets:
-        rows = list(ws.iter_rows(values_only=True))
+    for sheet_name, rows in workbook_rows(path):
         current_period = None
 
         for idx, row in enumerate(rows):
@@ -194,7 +278,7 @@ def parse_workbook(path: Path) -> dict:
 
                 period_text = clean(data[1] if len(data) > 1 else "")
                 if period_text:
-                    current_period = parse_period(period_text, ws.title)
+                    current_period = parse_period(period_text, sheet_name)
                     if not any(period["id"] == current_period["id"] for period in periods):
                         periods.append(current_period)
 
