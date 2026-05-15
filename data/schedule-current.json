@@ -1,9 +1,11 @@
 {
   "meta": {
-    "title": "Final Exam Bus Schedule",
-    "version": "Monday 11 May to Thursday 14 May 2026",
-    "sourceFile": "Final Exam Bus Schedule_Friday 08 May to Thursday 14 May 2026.xlsx",
-    "updatedAt": "2026-05-13"
+    "title": "Daily Shuttle Service Bus Schedule",
+    "version": "Spring 2026 · 5th update",
+    "sourceFile": "Fifth Update_Daily Shuttle Service Bus Schedule_ Spring 2026.pdf",
+    "updatedAt": "2026-05-15",
+    "advisory": "Regular daily shuttle service is reportedly following the April 5 schedule.",
+    "sanNote": "SAN Campus routes include Arzanah where listed in the source schedule."
   },
   "locations": {
     "al_rawda": "Al Rawda",
@@ -25,1663 +27,1349 @@
   ],
   "periods": [
     {
-      "id": "2026-05-08",
-      "label": "Fri 08 May",
-      "fullLabel": "Friday 08 May 2026",
-      "start": "2026-05-08",
-      "end": "2026-05-08"
+      "id": "mon_thu",
+      "label": "Mon-Thu",
+      "fullLabel": "Monday to Thursday",
+      "serviceDays": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
-      "id": "2026-05-10",
-      "label": "Sun 10 May",
-      "fullLabel": "Sunday 10 May 2026",
-      "start": "2026-05-10",
-      "end": "2026-05-10"
-    },
-    {
-      "id": "2026-05-11..2026-05-14",
-      "label": "11 May - 14 May",
-      "fullLabel": "Monday to Thursday 11 to 14 May 2026",
-      "start": "2026-05-11",
-      "end": "2026-05-14"
+      "id": "friday",
+      "label": "Friday",
+      "fullLabel": "Friday",
+      "serviceDays": [
+        5
+      ]
     }
   ],
   "routes": {
-    "2026-05-08": {
+    "mon_thu": {
       "al_rawda>main": [
         {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:00"
         },
         {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "09:00"
         },
         {
-          "t": "13:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "09:30"
         },
         {
-          "t": "14:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "10:00"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "11:00"
+        },
+        {
+          "t": "12:00"
+        },
+        {
+          "t": "12:30"
+        },
+        {
+          "t": "13:00"
+        },
+        {
+          "t": "14:00"
+        },
+        {
+          "t": "15:30"
+        },
+        {
+          "t": "16:00"
+        },
+        {
+          "t": "17:00"
+        }
+      ],
+      "al_rawda>san": [
+        {
+          "t": "08:20"
+        },
+        {
+          "t": "09:20"
+        },
+        {
+          "t": "09:50"
+        },
+        {
+          "t": "10:20"
+        },
+        {
+          "t": "10:50"
+        },
+        {
+          "t": "11:20"
+        },
+        {
+          "t": "12:20"
+        },
+        {
+          "t": "12:50"
+        },
+        {
+          "t": "13:20"
+        },
+        {
+          "t": "14:20"
+        },
+        {
+          "t": "15:20"
+        },
+        {
+          "t": "15:50"
+        },
+        {
+          "t": "16:20"
+        },
+        {
+          "t": "17:20"
         }
       ],
       "kurh>main": [
         {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:00"
         },
         {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "09:00"
         },
         {
-          "t": "13:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "09:30"
         },
         {
-          "t": "14:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "10:00"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "11:00"
+        },
+        {
+          "t": "12:00"
+        },
+        {
+          "t": "12:30"
+        },
+        {
+          "t": "13:00"
+        },
+        {
+          "t": "14:00"
+        },
+        {
+          "t": "15:30"
+        },
+        {
+          "t": "16:00"
+        },
+        {
+          "t": "17:00"
         }
       ],
-      "umm_lulu>main": [
+      "kurh>san": [
         {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:00"
         },
         {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:20"
         },
         {
-          "t": "13:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "09:20"
         },
         {
-          "t": "14:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "09:50"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "masdar>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:20"
         },
         {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:50"
         },
         {
-          "t": "13:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "11:20"
         },
         {
-          "t": "14:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "12:20"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "san>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "12:50"
         },
         {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "13:20"
         },
         {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "14:20"
         },
         {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "15:20"
         },
         {
-          "t": "13:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "15:50"
         },
         {
-          "t": "14:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "16:20"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "16:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "18:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "17:20"
         }
       ],
       "main>al_rawda": [
         {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:30"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "11:05"
         },
         {
-          "t": "16:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "12:10"
         },
         {
-          "t": "17:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "13:10"
         },
         {
-          "t": "17:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "13:40"
         },
         {
-          "t": "18:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "14:10"
         },
         {
-          "t": "19:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "15:00"
         },
         {
-          "t": "20:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "15:30"
+        },
+        {
+          "t": "16:05"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:05"
+        },
+        {
+          "t": "18:05"
+        },
+        {
+          "t": "19:10"
+        },
+        {
+          "t": "19:35"
+        },
+        {
+          "t": "20:45"
         }
       ],
       "main>kurh": [
         {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:30"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "11:05"
         },
         {
-          "t": "16:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "11:40",
+          "note": "KURH & Umm Lulu only"
         },
         {
-          "t": "17:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "12:10"
         },
         {
-          "t": "17:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "13:10"
         },
         {
-          "t": "18:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "13:40"
         },
         {
-          "t": "19:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "14:10"
         },
         {
-          "t": "20:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "main>umm_lulu": [
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "15:00"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "15:30"
         },
         {
-          "t": "16:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "16:05"
         },
         {
-          "t": "17:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "16:30"
         },
         {
-          "t": "17:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "17:05"
         },
         {
-          "t": "18:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "17:40",
+          "note": "KURH & Umm Lulu only"
         },
         {
-          "t": "19:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "18:05"
         },
         {
-          "t": "20:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "19:10"
+        },
+        {
+          "t": "19:35"
+        },
+        {
+          "t": "20:45"
         }
       ],
       "main>masdar": [
         {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:40",
+          "note": "Bus 85420"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:15",
+          "note": "Bus 89249 · via SAN"
         },
         {
-          "t": "16:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "12:00"
         },
         {
-          "t": "17:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "13:30"
         },
         {
-          "t": "17:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "14:40"
         },
         {
-          "t": "18:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "15:05"
         },
         {
-          "t": "19:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "16:15"
         },
         {
-          "t": "20:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "16:35"
+        },
+        {
+          "t": "17:20"
+        },
+        {
+          "t": "18:05"
+        },
+        {
+          "t": "19:45"
+        },
+        {
+          "t": "20:20"
         }
       ],
       "main>san": [
         {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:00"
         },
         {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "09:00"
         },
         {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "09:30"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "09:50",
+          "note": "Bus 89249"
         },
         {
-          "t": "13:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "10:00"
         },
         {
-          "t": "14:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "10:15"
         },
         {
-          "t": "15:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "10:25"
         },
         {
-          "t": "16:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "10:50"
         },
         {
-          "t": "17:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "11:10"
         },
         {
-          "t": "17:30",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "11:30"
         },
         {
-          "t": "18:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "11:40",
+          "note": "Thursday only",
+          "days": [
+            4
+          ]
         },
         {
-          "t": "19:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "11:50"
         },
         {
-          "t": "20:00",
-          "note": "Main Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "al_bahar>main": [
-        {
-          "t": "08:30",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
+          "t": "12:10"
         },
         {
-          "t": "09:30",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
+          "t": "12:40"
         },
         {
-          "t": "10:30",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "13:00"
         },
         {
-          "t": "12:30",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
+          "t": "13:20"
         },
         {
           "t": "13:30",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "main>al_bahar": [
-        {
-          "t": "11:30",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "16:30",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:00",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:30",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "18:00",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Al Bahar parking shuttle - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "al_rawda>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "13:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "14:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "kurh>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "13:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "14:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "umm_lulu>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "13:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "14:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "masdar>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "13:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "14:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "san>al_rawda": [
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "16:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "18:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "san>kurh": [
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "16:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "18:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "san>umm_lulu": [
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "16:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "18:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ],
-      "san>masdar": [
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "16:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "17:30",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "18:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 2:00 PM - 4:00 PM / 2:00 PM - 5:00 PM"
-        }
-      ]
-    },
-    "2026-05-10": {
-      "al_rawda>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM - Other residences"
-        }
-      ],
-      "kurh>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM - Other residences"
-        }
-      ],
-      "umm_lulu>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM - Other residences"
-        }
-      ],
-      "masdar>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "note": "Bus 89249"
         },
         {
-          "t": "14:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "san>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM - Other residences"
+          "t": "14:00"
         },
         {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "14:40"
         },
         {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "14:55"
         },
         {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "t": "15:30"
         },
         {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>al_rawda": [
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "16:00"
         },
-        {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>kurh": [
         {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "16:30"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "17:00"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "18:00"
         },
         {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "19:10"
         },
         {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+          "t": "19:40"
         },
         {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+          "t": "20:45"
         }
       ],
       "main>umm_lulu": [
         {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:30"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "11:05"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "11:40",
+          "note": "KURH & Umm Lulu only"
         },
         {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "12:10"
         },
         {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+          "t": "13:10"
         },
         {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>masdar": [
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "13:40"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "14:10"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "15:00"
         },
         {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "15:30"
         },
         {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
+          "t": "16:05"
         },
         {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "16:30"
         },
         {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "17:05"
         },
         {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "17:40",
+          "note": "KURH & Umm Lulu only"
         },
         {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "18:05"
         },
         {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "19:10"
         },
         {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "19:35"
         },
         {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "al_bahar>main": [
-        {
-          "t": "08:30",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>al_bahar": [
-        {
-          "t": "11:30",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "al_rawda>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        }
-      ],
-      "kurh>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        }
-      ],
-      "umm_lulu>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        }
-      ],
-      "masdar>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        }
-      ],
-      "san>al_rawda": [
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "san>kurh": [
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "san>umm_lulu": [
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "san>masdar": [
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ]
-    },
-    "2026-05-11..2026-05-14": {
-      "al_rawda>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM - Other residences"
-        }
-      ],
-      "kurh>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM - Other residences"
-        }
-      ],
-      "umm_lulu>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM - Other residences"
+          "t": "20:45"
         }
       ],
       "masdar>main": [
         {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "07:45"
         },
         {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:30"
         },
         {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
+          "t": "09:40"
         },
         {
-          "t": "14:30",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        }
-      ],
-      "san>main": [
-        {
-          "t": "08:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM - Other residences"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>al_rawda": [
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "18:30",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>kurh": [
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "18:30",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>umm_lulu": [
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "18:30",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>masdar": [
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "18:30",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "main>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "12:00",
-          "note": "Main Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "13:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Main Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "18:30",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "Main Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Main Campus exam - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "al_bahar>main": [
-        {
-          "t": "08:30",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "09:30",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:30",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "12:30",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "13:30",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "14:30",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 6:00 PM"
-        }
-      ],
-      "main>al_bahar": [
-        {
-          "t": "11:30",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "12:00",
-          "note": "Al Bahar parking shuttle - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "15:00",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "15:30",
-          "note": "Al Bahar parking shuttle - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "18:30",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:00",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "19:30",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 7:00 PM"
-        },
-        {
-          "t": "20:00",
-          "note": "Al Bahar parking shuttle - 4:00 PM - 7:00 PM"
-        }
-      ],
-      "al_rawda>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "13:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        }
-      ],
-      "kurh>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
-        },
-        {
-          "t": "11:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
-        },
-        {
-          "t": "13:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        },
-        {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
-        }
-      ],
-      "umm_lulu>san": [
-        {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "11:00"
         },
         {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "12:30"
         },
         {
-          "t": "11:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "14:00"
         },
         {
-          "t": "13:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "15:30"
         },
         {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "17:00"
         }
       ],
       "masdar>san": [
         {
-          "t": "08:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "07:00"
         },
         {
-          "t": "10:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:00"
         },
         {
-          "t": "11:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "09:30"
         },
         {
-          "t": "13:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "11:00"
         },
         {
-          "t": "15:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "12:30"
+        },
+        {
+          "t": "14:00"
+        },
+        {
+          "t": "15:30"
+        },
+        {
+          "t": "16:15"
+        },
+        {
+          "t": "17:00"
         }
       ],
       "san>al_rawda": [
         {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:05"
         },
         {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:30"
         },
         {
-          "t": "15:00",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "11:00"
         },
         {
-          "t": "15:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "11:30"
         },
         {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "12:00"
         },
         {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "13:00"
         },
         {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "t": "13:30"
         },
         {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "t": "14:00"
+        },
+        {
+          "t": "14:40"
+        },
+        {
+          "t": "15:00"
+        },
+        {
+          "t": "15:30"
+        },
+        {
+          "t": "16:10"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:00"
+        },
+        {
+          "t": "17:45"
+        },
+        {
+          "t": "18:00"
+        },
+        {
+          "t": "18:55"
+        },
+        {
+          "t": "19:10"
+        },
+        {
+          "t": "20:40"
         }
       ],
       "san>kurh": [
         {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:05"
         },
         {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "10:30"
         },
         {
-          "t": "15:00",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "11:00"
         },
         {
-          "t": "15:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "11:30"
         },
         {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "12:00"
         },
         {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "13:00"
         },
         {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "t": "13:30"
         },
         {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "t": "14:00"
+        },
+        {
+          "t": "14:40"
+        },
+        {
+          "t": "15:00"
+        },
+        {
+          "t": "15:30"
+        },
+        {
+          "t": "16:10"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:00"
+        },
+        {
+          "t": "17:45"
+        },
+        {
+          "t": "18:00"
+        },
+        {
+          "t": "18:55"
+        },
+        {
+          "t": "19:10"
+        },
+        {
+          "t": "20:40"
         }
       ],
-      "san>umm_lulu": [
+      "san>main": [
         {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "08:00"
         },
         {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "09:00"
         },
         {
-          "t": "15:00",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "09:30"
         },
         {
-          "t": "15:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "10:00"
         },
         {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "10:20"
         },
         {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "10:35"
         },
         {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "t": "11:20"
         },
         {
-          "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "t": "11:45"
+        },
+        {
+          "t": "12:00"
+        },
+        {
+          "t": "12:30"
+        },
+        {
+          "t": "12:45"
+        },
+        {
+          "t": "13:00"
+        },
+        {
+          "t": "13:30"
+        },
+        {
+          "t": "14:00"
+        },
+        {
+          "t": "14:35",
+          "note": "Bus 94657"
+        },
+        {
+          "t": "14:50"
+        },
+        {
+          "t": "15:00"
+        },
+        {
+          "t": "15:30"
+        },
+        {
+          "t": "16:00"
+        },
+        {
+          "t": "16:20",
+          "note": "Bus 89249"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:00"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "17:55"
+        },
+        {
+          "t": "18:10",
+          "note": "Monday & Wednesday only",
+          "days": [
+            1,
+            3
+          ]
+        },
+        {
+          "t": "18:20",
+          "note": "Tuesday & Thursday only · Bus 89249",
+          "days": [
+            2,
+            4
+          ]
+        },
+        {
+          "t": "19:00"
+        },
+        {
+          "t": "19:20"
+        },
+        {
+          "t": "19:45",
+          "note": "Bus 94254"
+        },
+        {
+          "t": "20:40"
         }
       ],
       "san>masdar": [
         {
-          "t": "11:30",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "12:10"
         },
         {
-          "t": "12:00",
-          "note": "SAN Campus exam - 9:00 AM - 11:00 AM"
+          "t": "13:30"
         },
         {
-          "t": "15:00",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "15:00"
         },
         {
-          "t": "15:30",
-          "note": "SAN Campus exam - 12:30 PM - 2:30 PM"
+          "t": "16:40"
         },
         {
-          "t": "18:30",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "18:10"
         },
         {
-          "t": "19:00",
-          "note": "SAN Campus exam - 4:00 PM - 6:00 PM"
+          "t": "19:35"
         },
         {
-          "t": "19:30",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "t": "20:20"
+        }
+      ],
+      "san>umm_lulu": [
+        {
+          "t": "10:05"
+        },
+        {
+          "t": "10:30"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "12:00"
+        },
+        {
+          "t": "13:00"
+        },
+        {
+          "t": "13:30"
+        },
+        {
+          "t": "14:00"
+        },
+        {
+          "t": "14:40"
+        },
+        {
+          "t": "15:00"
+        },
+        {
+          "t": "15:30"
+        },
+        {
+          "t": "16:10"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:00"
+        },
+        {
+          "t": "17:45"
+        },
+        {
+          "t": "18:00"
+        },
+        {
+          "t": "18:55"
+        },
+        {
+          "t": "19:10"
         },
         {
           "t": "20:00",
-          "note": "SAN Campus exam - 4:00 PM - 7:00 PM"
+          "note": "Umm Lulu only"
+        },
+        {
+          "t": "20:40"
+        }
+      ],
+      "umm_lulu>main": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "09:30"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "12:00"
+        },
+        {
+          "t": "12:30"
+        },
+        {
+          "t": "13:00"
+        },
+        {
+          "t": "14:00"
+        },
+        {
+          "t": "15:30"
+        },
+        {
+          "t": "16:00"
+        },
+        {
+          "t": "17:00"
+        }
+      ],
+      "umm_lulu>san": [
+        {
+          "t": "08:20"
+        },
+        {
+          "t": "09:20"
+        },
+        {
+          "t": "09:50"
+        },
+        {
+          "t": "10:20"
+        },
+        {
+          "t": "10:50"
+        },
+        {
+          "t": "11:20"
+        },
+        {
+          "t": "12:20"
+        },
+        {
+          "t": "12:50"
+        },
+        {
+          "t": "13:20"
+        },
+        {
+          "t": "14:20"
+        },
+        {
+          "t": "15:20"
+        },
+        {
+          "t": "15:50"
+        },
+        {
+          "t": "16:20"
+        },
+        {
+          "t": "17:20"
+        }
+      ]
+    },
+    "friday": {
+      "al_rawda>main": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        }
+      ],
+      "al_rawda>san": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        }
+      ],
+      "kurh>main": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        }
+      ],
+      "kurh>san": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        }
+      ],
+      "main>al_rawda": [
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "main>kurh": [
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "main>masdar": [
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "main>san": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "main>umm_lulu": [
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:30"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "masdar>main": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        }
+      ],
+      "masdar>san": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        }
+      ],
+      "san>al_rawda": [
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:40"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "san>kurh": [
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:40"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "san>main": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:40"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "san>masdar": [
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:40"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "san>umm_lulu": [
+        {
+          "t": "11:30"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:30"
+        },
+        {
+          "t": "16:40"
+        },
+        {
+          "t": "17:30"
+        },
+        {
+          "t": "18:30"
+        },
+        {
+          "t": "20:20"
+        }
+      ],
+      "umm_lulu>main": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
+        }
+      ],
+      "umm_lulu>san": [
+        {
+          "t": "08:00"
+        },
+        {
+          "t": "09:00"
+        },
+        {
+          "t": "10:00"
+        },
+        {
+          "t": "11:00"
+        },
+        {
+          "t": "13:15"
+        },
+        {
+          "t": "14:00"
         }
       ]
     }
