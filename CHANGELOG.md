@@ -2,6 +2,20 @@
 
 This file records important reasoning, schedule fixes, and website changes before Mindy reviews and approves any GitHub push.
 
+## 2026-05-19 10:43 +04
+
+- Scope: updated the local draft website from the new Spring Break 2026 shuttle PDF.
+- Source: `bus表/Daily Shuttle Service - Spring Break 2026.pdf`, also copied to `sources/Daily Shuttle Service - Spring Break 2026.pdf`.
+- Correction: the first draft accidentally used the Outlook temp file `PG Students Daily Shuttle Service - Spring Break 2026.pdf`, which had different timings. The local draft was rebuilt from Mindy's explicitly provided PDF path.
+- Website change: replaced the regular Spring 2026 schedule with `Daily Shuttle Bus Timing - Spring Break 2026`.
+- Fix: restored the route-selection and next-bus helper script after the first local draft showed blank selectors and stayed on `Loading`.
+- Route coverage: source lists `Masdar`, `Umm Lulu`, `Al Rawda`, `Main Campus`, and `SAN Campus`. `KURH` and `Al Bahar Parking` were removed from the route selector because they are not listed in the new PDF.
+- Schedule mode: the PDF uses one `Monday to Friday` schedule, so the website now shows a single `Mon-Fri` schedule button.
+- Monday to Friday hostel-campus key times: hostels to either campus `7:30 AM`, `8:15 AM`, `9:30 AM`, `11:00 AM`, `1:00 PM`, `3:00 PM`; campus to hostels `12:00 PM`, `2:00 PM`, `4:00 PM`, `5:30 PM`, `6:30 PM`, `7:30 PM`, `8:20 PM`.
+- Monday to Friday Main Campus/SAN Campus key times in both directions: `7:30 AM`, `8:30 AM`, `10:30 AM`, `1:00 PM`, `2:30 PM`, `4:30 PM`, `6:30 PM`, `8:20 PM`.
+- Validation: checked representative hostel-campus routes and Main Campus/SAN Campus routes against extracted PDF text. Confirmed `Feedback` and Cloudflare analytics remain in `index.html`. Ran a page-start simulation confirming schedule buttons, From/To options, and route results render.
+- Publish status: reviewed by Mindy and approved for GitHub Pages publishing on 2026-05-19.
+
 ## 2026-05-15 11:32 +04
 
 - Scope: replaced the expired final exam schedule with the regular Spring 2026 daily shuttle schedule.
