@@ -2,6 +2,29 @@
 
 This file records important reasoning, schedule fixes, and website changes before Mindy reviews and approves any GitHub push.
 
+## 2026-05-31 19:35 +04
+
+- Scope: updated the local draft website from the Summer Term 2026 shuttle schedules.
+- Sources: `Daily Shuttle Service Bus Schedule_ Summer Term 2026.pdf` and `Al Bahar Parking_Student Bus Schedule.pdf`, copied into `sources/`.
+- Website change: replaced the Spring Break schedule with `Daily Shuttle Service Bus Schedule - Summer Term 2026`.
+- Route coverage: restored `KURH` and added `Al Bahar Parking`. Current route selector includes `Al Rawda`, `KURH`, `Umm Lulu`, `Masdar`, `Main Campus`, `SAN Campus`, and `Al Bahar Parking`.
+- Monday to Thursday risky routes checked: shared residences to Main, Main to shared residences, shared residences to SAN/Arzanah, SAN/Arzanah to shared residences, Masdar to Main, Main to Masdar, Masdar to SAN, SAN to Masdar, Main to SAN, and SAN to Main.
+- Friday handling: merged campus-to-campus times from both Friday campus blocks so `Main Campus -> SAN Campus` and `SAN Campus -> Main Campus` include both morning and return departures.
+- Al Bahar handling: combined the first-bus and second-bus tables into one sorted `Al Bahar Parking <-> Main Campus` route list. The same Al Bahar timings are available in both `Mon-Thu` and `Friday` schedule modes because the separate attachment does not specify a different Friday table.
+- Special note: retained the `Monday & Wednesday only` rule for `SAN Campus -> Masdar` at `6:40 PM`.
+- Validation: checked representative routes against extracted PDF text, confirmed schedule buttons and route selectors render, confirmed `Feedback` and Cloudflare analytics remain in `index.html`.
+- Publish status: reviewed by Mindy and approved for GitHub Pages publishing on 2026-05-31.
+
+## 2026-05-22 18:34 +04
+
+- Scope: checked Outlook for new KU Student Transportation shuttle updates since the 2026-05-15 automation run.
+- Newest source: Outlook email `Daily Shuttle Service Update - Eid Holiday and Summer Term 2026` from `StudentTransportation@ku.ac.ae`, received 2026-05-21 11:50 UTC / 15:50 GST. The email had no PDF or Excel attachment.
+- Related attachment checked: Outlook email `Spring Break 2026 Daily Shuttle Bus Schedule`, received 2026-05-18 11:50 UTC / 15:50 GST, had a shuttle schedule attachment already represented locally by `sources/Daily Shuttle Service - Spring Break 2026.pdf`.
+- Website change: kept the Spring Break weekday route times for the active local draft, added a dated `25-29 May` Eid Holiday closure period, and updated the footer advisory to state that Summer Term 2026 schedule details are pending KU's next announcement.
+- Logic fix: `periodContainsToday` now respects `start`/`end` date bounds even when a period also uses recurring weekday service rules, preventing the Spring Break weekday timetable from showing during the May 25-29 closure or after it expires.
+- Validation: compared the May 21 email body against the draft closure dates, confirmed there was no newer PDF/Excel attachment in the newest email, simulated May 22 / May 25 / June 1 date behavior, and re-synced `github-upload/`.
+- Publish status: local draft only. Do not push or publish until Mindy reviews and explicitly approves.
+
 ## 2026-05-19 10:43 +04
 
 - Scope: updated the local draft website from the new Spring Break 2026 shuttle PDF.
